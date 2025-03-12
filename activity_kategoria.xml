@@ -5,17 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainAc">
+    tools:context=".KategoriaActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kategorie" />
-
-    <ListView
-        android:id="@+id/lista"
+        android:id="@+id/kategoriatext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/kategorie"></ListView>
+        android:text="TextView" />
 
+    <ListView
+        android:id="@+id/kresylista"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
