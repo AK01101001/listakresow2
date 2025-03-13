@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">kresy</string>
+    <array name="kategorie">
+        <item>naturalne</item>
+        <item>sztuczne</item>
+    </array>
+</resources>

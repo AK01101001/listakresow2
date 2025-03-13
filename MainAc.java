@@ -18,6 +18,7 @@ public static final String KATEGORIA = "kategoria";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lista = findViewById(R.id.lista);
+        Irepozytorium.dodaj();
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

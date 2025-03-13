@@ -17,7 +17,7 @@ public class KategoriaActivity extends AppCompatActivity {
     ListView lista;
     TextView kategoriaW;
 
-    ArrayList<kresy> listakresow;
+    ArrayList<kres> listakresow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,17 +26,32 @@ public class KategoriaActivity extends AppCompatActivity {
         kategoriaW = findViewById(R.id.kategoriatext);
         String kategoria = getIntent().getExtras().get(MainAc.KATEGORIA).toString();
         kategoriaW.setText(kategoria);
-        listakresow = Irepozytorium.kresyL;
-        ArrayAdapter <kresy> przepisArrayAdapter=
-                new ArrayAdapter<kresy>(
+
+        int idKategoria;
+        switch (kategoria)
+        {
+            case "naturalne":
+                idKategoria =0;
+                break;
+            case "sztuczne":
+                idKategoria=1;
+                break;
+            default:
+                idKategoria =-1;
+                break;
+        }
+        listakresow = Irepozytorium.getkresyatkategoria(idKategoria);
+        ArrayAdapter <kres> przepisArrayAdapter=
+                new ArrayAdapter<kres>(
                         this,
                         android.R.layout.simple_list_item_1,
-                        Irepozytorium.getprzepisyatkategoria(kategoria)
+                        listakresow
                 );
+        lista.setAdapter(przepisArrayAdapter);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                klik(i);
+                klik(listakresow.get(i).getId());
             }
         });
 
